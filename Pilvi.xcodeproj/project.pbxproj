@@ -1,0 +1,522 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00A9DDBF22F2A9A3001567EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A9DDBE22F2A9A3001567EF /* AppDelegate.swift */; };
+		00A9DDC422F2A9A3001567EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A9DDC222F2A9A3001567EF /* Main.storyboard */; };
+		00A9DDC622F2A9A3001567EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00A9DDC522F2A9A3001567EF /* Assets.xcassets */; };
+		00A9DDC922F2A9A3001567EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A9DDC722F2A9A3001567EF /* LaunchScreen.storyboard */; };
+		00A9DDD422F2A9A3001567EF /* PilviTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A9DDD322F2A9A3001567EF /* PilviTests.swift */; };
+		00A9DDDF22F31AD5001567EF /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A9DDDE22F31AD5001567EF /* WeatherViewController.swift */; };
+		00A9DDE122F338A4001567EF /* WeatherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A9DDE022F338A4001567EF /* WeatherCollectionViewCell.swift */; };
+		00A9DDE322F33AEB001567EF /* PlaceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A9DDE222F33AEB001567EF /* PlaceCollectionViewCell.swift */; };
+		00A9DDEB22F3499B001567EF /* ShortSentenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A9DDEA22F3499B001567EF /* ShortSentenceTableViewCell.swift */; };
+		00A9DDF022F34A35001567EF /* TodayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A9DDEF22F34A35001567EF /* TodayTableViewCell.swift */; };
+		00A9DDF222F34A86001567EF /* TimeWeatherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A9DDF122F34A86001567EF /* TimeWeatherCollectionViewCell.swift */; };
+		00A9DDF422F34ACB001567EF /* DayWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A9DDF322F34ACB001567EF /* DayWeatherTableViewCell.swift */; };
+		00A9DDF622F34B48001567EF /* DetailListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A9DDF522F34B48001567EF /* DetailListTableViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		00A9DDD022F2A9A3001567EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00A9DDB322F2A9A3001567EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00A9DDBA22F2A9A3001567EF;
+			remoteInfo = Pilvi;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00A9DDBB22F2A9A3001567EF /* Pilvi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pilvi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		00A9DDBE22F2A9A3001567EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		00A9DDC322F2A9A3001567EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		00A9DDC522F2A9A3001567EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		00A9DDC822F2A9A3001567EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		00A9DDCA22F2A9A3001567EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00A9DDCF22F2A9A3001567EF /* PilviTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PilviTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00A9DDD322F2A9A3001567EF /* PilviTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilviTests.swift; sourceTree = "<group>"; };
+		00A9DDD522F2A9A3001567EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00A9DDDE22F31AD5001567EF /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		00A9DDE022F338A4001567EF /* WeatherCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollectionViewCell.swift; sourceTree = "<group>"; };
+		00A9DDE222F33AEB001567EF /* PlaceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCollectionViewCell.swift; sourceTree = "<group>"; };
+		00A9DDEA22F3499B001567EF /* ShortSentenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortSentenceTableViewCell.swift; sourceTree = "<group>"; };
+		00A9DDEF22F34A35001567EF /* TodayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTableViewCell.swift; sourceTree = "<group>"; };
+		00A9DDF122F34A86001567EF /* TimeWeatherCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeWeatherCollectionViewCell.swift; sourceTree = "<group>"; };
+		00A9DDF322F34ACB001567EF /* DayWeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayWeatherTableViewCell.swift; sourceTree = "<group>"; };
+		00A9DDF522F34B48001567EF /* DetailListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailListTableViewCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		00A9DDB822F2A9A3001567EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00A9DDCC22F2A9A3001567EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00A9DDB222F2A9A3001567EF = {
+			isa = PBXGroup;
+			children = (
+				00A9DDBD22F2A9A3001567EF /* Pilvi */,
+				00A9DDD222F2A9A3001567EF /* PilviTests */,
+				00A9DDBC22F2A9A3001567EF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		00A9DDBC22F2A9A3001567EF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				00A9DDBB22F2A9A3001567EF /* Pilvi.app */,
+				00A9DDCF22F2A9A3001567EF /* PilviTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		00A9DDBD22F2A9A3001567EF /* Pilvi */ = {
+			isa = PBXGroup;
+			children = (
+				00A9DDE422F33B2E001567EF /* Supporting Files */,
+				00A9DDC222F2A9A3001567EF /* Main.storyboard */,
+				00A9DDCA22F2A9A3001567EF /* Info.plist */,
+				00A9DDE722F34900001567EF /* Weather */,
+			);
+			path = Pilvi;
+			sourceTree = "<group>";
+		};
+		00A9DDD222F2A9A3001567EF /* PilviTests */ = {
+			isa = PBXGroup;
+			children = (
+				00A9DDD322F2A9A3001567EF /* PilviTests.swift */,
+				00A9DDD522F2A9A3001567EF /* Info.plist */,
+			);
+			path = PilviTests;
+			sourceTree = "<group>";
+		};
+		00A9DDE422F33B2E001567EF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				00A9DDBE22F2A9A3001567EF /* AppDelegate.swift */,
+				00A9DDC522F2A9A3001567EF /* Assets.xcassets */,
+				00A9DDC722F2A9A3001567EF /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		00A9DDE722F34900001567EF /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				00A9DDEE22F349DB001567EF /* View */,
+				00A9DDDE22F31AD5001567EF /* WeatherViewController.swift */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		00A9DDEE22F349DB001567EF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				00A9DDE022F338A4001567EF /* WeatherCollectionViewCell.swift */,
+				00A9DDE222F33AEB001567EF /* PlaceCollectionViewCell.swift */,
+				00A9DDEA22F3499B001567EF /* ShortSentenceTableViewCell.swift */,
+				00A9DDEF22F34A35001567EF /* TodayTableViewCell.swift */,
+				00A9DDF122F34A86001567EF /* TimeWeatherCollectionViewCell.swift */,
+				00A9DDF322F34ACB001567EF /* DayWeatherTableViewCell.swift */,
+				00A9DDF522F34B48001567EF /* DetailListTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		00A9DDBA22F2A9A3001567EF /* Pilvi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00A9DDD822F2A9A3001567EF /* Build configuration list for PBXNativeTarget "Pilvi" */;
+			buildPhases = (
+				00A9DDB722F2A9A3001567EF /* Sources */,
+				00A9DDB822F2A9A3001567EF /* Frameworks */,
+				00A9DDB922F2A9A3001567EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pilvi;
+			productName = Pilvi;
+			productReference = 00A9DDBB22F2A9A3001567EF /* Pilvi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		00A9DDCE22F2A9A3001567EF /* PilviTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00A9DDDB22F2A9A3001567EF /* Build configuration list for PBXNativeTarget "PilviTests" */;
+			buildPhases = (
+				00A9DDCB22F2A9A3001567EF /* Sources */,
+				00A9DDCC22F2A9A3001567EF /* Frameworks */,
+				00A9DDCD22F2A9A3001567EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00A9DDD122F2A9A3001567EF /* PBXTargetDependency */,
+			);
+			name = PilviTests;
+			productName = PilviTests;
+			productReference = 00A9DDCF22F2A9A3001567EF /* PilviTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		00A9DDB322F2A9A3001567EF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1030;
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = jaeeun;
+				TargetAttributes = {
+					00A9DDBA22F2A9A3001567EF = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					00A9DDCE22F2A9A3001567EF = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = 00A9DDBA22F2A9A3001567EF;
+					};
+				};
+			};
+			buildConfigurationList = 00A9DDB622F2A9A3001567EF /* Build configuration list for PBXProject "Pilvi" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 00A9DDB222F2A9A3001567EF;
+			productRefGroup = 00A9DDBC22F2A9A3001567EF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				00A9DDBA22F2A9A3001567EF /* Pilvi */,
+				00A9DDCE22F2A9A3001567EF /* PilviTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		00A9DDB922F2A9A3001567EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00A9DDC922F2A9A3001567EF /* LaunchScreen.storyboard in Resources */,
+				00A9DDC622F2A9A3001567EF /* Assets.xcassets in Resources */,
+				00A9DDC422F2A9A3001567EF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00A9DDCD22F2A9A3001567EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		00A9DDB722F2A9A3001567EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00A9DDEB22F3499B001567EF /* ShortSentenceTableViewCell.swift in Sources */,
+				00A9DDF422F34ACB001567EF /* DayWeatherTableViewCell.swift in Sources */,
+				00A9DDE322F33AEB001567EF /* PlaceCollectionViewCell.swift in Sources */,
+				00A9DDE122F338A4001567EF /* WeatherCollectionViewCell.swift in Sources */,
+				00A9DDF622F34B48001567EF /* DetailListTableViewCell.swift in Sources */,
+				00A9DDF222F34A86001567EF /* TimeWeatherCollectionViewCell.swift in Sources */,
+				00A9DDBF22F2A9A3001567EF /* AppDelegate.swift in Sources */,
+				00A9DDDF22F31AD5001567EF /* WeatherViewController.swift in Sources */,
+				00A9DDF022F34A35001567EF /* TodayTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00A9DDCB22F2A9A3001567EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00A9DDD422F2A9A3001567EF /* PilviTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		00A9DDD122F2A9A3001567EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 00A9DDBA22F2A9A3001567EF /* Pilvi */;
+			targetProxy = 00A9DDD022F2A9A3001567EF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		00A9DDC222F2A9A3001567EF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				00A9DDC322F2A9A3001567EF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		00A9DDC722F2A9A3001567EF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				00A9DDC822F2A9A3001567EF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		00A9DDD622F2A9A3001567EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		00A9DDD722F2A9A3001567EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		00A9DDD922F2A9A3001567EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R78643UTJ5;
+				INFOPLIST_FILE = Pilvi/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.jaeeun.Pilvi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		00A9DDDA22F2A9A3001567EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R78643UTJ5;
+				INFOPLIST_FILE = Pilvi/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.jaeeun.Pilvi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		00A9DDDC22F2A9A3001567EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R78643UTJ5;
+				INFOPLIST_FILE = PilviTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.jaeeun.PilviTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pilvi.app/Pilvi";
+			};
+			name = Debug;
+		};
+		00A9DDDD22F2A9A3001567EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R78643UTJ5;
+				INFOPLIST_FILE = PilviTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.jaeeun.PilviTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pilvi.app/Pilvi";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		00A9DDB622F2A9A3001567EF /* Build configuration list for PBXProject "Pilvi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00A9DDD622F2A9A3001567EF /* Debug */,
+				00A9DDD722F2A9A3001567EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00A9DDD822F2A9A3001567EF /* Build configuration list for PBXNativeTarget "Pilvi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00A9DDD922F2A9A3001567EF /* Debug */,
+				00A9DDDA22F2A9A3001567EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00A9DDDB22F2A9A3001567EF /* Build configuration list for PBXNativeTarget "PilviTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00A9DDDC22F2A9A3001567EF /* Debug */,
+				00A9DDDD22F2A9A3001567EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 00A9DDB322F2A9A3001567EF /* Project object */;
+}
