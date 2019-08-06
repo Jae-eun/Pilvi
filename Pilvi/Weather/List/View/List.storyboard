@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0hz-g9-t3B">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--List View Controller-->
+        <scene sceneID="z8H-w3-nbf">
+            <objects>
+                <viewController storyboardIdentifier="ListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0hz-g9-t3B" customClass="ListViewController" customModule="Pilvi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KiU-4p-FbP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOw-Ot-ddj">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="6CV-hH-Eht"/>
+                                    <barButtonItem systemItem="add" id="BwO-Mg-q19">
+                                        <connections>
+                                            <action selector="openSearchViewController:" destination="0hz-g9-t3B" id="FT9-jG-HT7"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qjm-2B-Qqg">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListCell" rowHeight="76" id="gQM-Go-1ny" customClass="PlaceListTableViewCell" customModule="Pilvi" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="76"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gQM-Go-1ny" id="gLp-md-DGR">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="75.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="노원구" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrh-qI-KKD">
+                                                    <rect key="frame" x="15" y="33" width="52" height="24"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="36" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJ2-Tq-vVH">
+                                                    <rect key="frame" x="361" y="20" width="33" height="36"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="30"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오후 6:09" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSE-Dd-zdE">
+                                                    <rect key="frame" x="15" y="10" width="68.5" height="20"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="lrh-qI-KKD" secondAttribute="bottom" constant="10" id="2Wc-n2-sfm"/>
+                                                <constraint firstItem="VJ2-Tq-vVH" firstAttribute="centerY" secondItem="gLp-md-DGR" secondAttribute="centerY" id="BlS-H3-Au8"/>
+                                                <constraint firstItem="lrh-qI-KKD" firstAttribute="leading" secondItem="gLp-md-DGR" secondAttribute="leading" constant="15" id="IZX-Rd-IxL"/>
+                                                <constraint firstAttribute="trailing" secondItem="VJ2-Tq-vVH" secondAttribute="trailing" constant="20" id="LdP-6i-xxj"/>
+                                                <constraint firstItem="WSE-Dd-zdE" firstAttribute="leading" secondItem="lrh-qI-KKD" secondAttribute="leading" id="hgM-bf-JuQ"/>
+                                                <constraint firstItem="WSE-Dd-zdE" firstAttribute="top" secondItem="gLp-md-DGR" secondAttribute="top" constant="10" id="qNa-dd-OZ0"/>
+                                                <constraint firstItem="lrh-qI-KKD" firstAttribute="top" secondItem="WSE-Dd-zdE" secondAttribute="bottom" constant="3" id="s8v-zM-hSg"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="placeLabel" destination="lrh-qI-KKD" id="vJi-h9-qJ0"/>
+                                            <outlet property="temperatureLabel" destination="VJ2-Tq-vVH" id="akZ-nJ-M7j"/>
+                                            <outlet property="timeLabel" destination="WSE-Dd-zdE" id="lgq-nC-eB6"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="0hz-g9-t3B" id="TuQ-Ew-HN6"/>
+                                    <outlet property="delegate" destination="0hz-g9-t3B" id="VQp-kX-Po7"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kpq-sZ-vo5" firstAttribute="bottom" secondItem="oOw-Ot-ddj" secondAttribute="bottom" id="2JG-sM-mIa"/>
+                            <constraint firstItem="oOw-Ot-ddj" firstAttribute="top" secondItem="qjm-2B-Qqg" secondAttribute="bottom" id="KCS-46-BVe"/>
+                            <constraint firstItem="qjm-2B-Qqg" firstAttribute="leading" secondItem="kpq-sZ-vo5" secondAttribute="leading" id="UH6-Aa-RM7"/>
+                            <constraint firstItem="oOw-Ot-ddj" firstAttribute="leading" secondItem="kpq-sZ-vo5" secondAttribute="leading" id="opm-3g-hZ6"/>
+                            <constraint firstItem="kpq-sZ-vo5" firstAttribute="trailing" secondItem="qjm-2B-Qqg" secondAttribute="trailing" id="qwX-mw-ShB"/>
+                            <constraint firstAttribute="trailing" secondItem="oOw-Ot-ddj" secondAttribute="trailing" id="r34-VK-Dir"/>
+                            <constraint firstItem="qjm-2B-Qqg" firstAttribute="top" secondItem="kpq-sZ-vo5" secondAttribute="top" id="yun-Lm-GV3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kpq-sZ-vo5"/>
+                    </view>
+                    <connections>
+                        <outlet property="placeListTableView" destination="qjm-2B-Qqg" id="Nv9-Bn-lOz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bq5-W7-xAX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="694.20289855072474" y="-939.50892857142856"/>
+        </scene>
+        <!--Search Place View Controller-->
+        <scene sceneID="sH9-6p-Zv5">
+            <objects>
+                <viewController storyboardIdentifier="SearchPlaceViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hg1-VR-elI" customClass="SearchPlaceViewController" customModule="Pilvi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bGW-sx-T0P">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="도시, 우편번호 또는 공항 위치 입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DgF-1Z-xk2">
+                                <rect key="frame" x="124" y="50.5" width="166" height="14.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LC4-TU-fNh">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResultCell" id="abY-2a-znI" customClass="SearchResultTableViewCell" customModule="Pilvi" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="abY-2a-znI" id="XKJ-Jo-unw">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="대한민국" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9n7-nP-6RH">
+                                                    <rect key="frame" x="30" y="12" width="59" height="20"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="9n7-nP-6RH" firstAttribute="leading" secondItem="XKJ-Jo-unw" secondAttribute="leading" constant="30" id="EIE-fi-kA6"/>
+                                                <constraint firstItem="9n7-nP-6RH" firstAttribute="centerY" secondItem="XKJ-Jo-unw" secondAttribute="centerY" id="paO-DU-bY8"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="resultLabel" destination="9n7-nP-6RH" id="tLo-Jf-3Bd"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="hg1-VR-elI" id="ycl-zO-vEC"/>
+                                    <outlet property="delegate" destination="hg1-VR-elI" id="iib-vv-g4D"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="J2x-f5-x6H" firstAttribute="bottom" secondItem="LC4-TU-fNh" secondAttribute="bottom" id="8hG-Lu-K2F"/>
+                            <constraint firstItem="LC4-TU-fNh" firstAttribute="top" secondItem="J2x-f5-x6H" secondAttribute="top" id="HEU-d8-d1f"/>
+                            <constraint firstItem="LC4-TU-fNh" firstAttribute="leading" secondItem="J2x-f5-x6H" secondAttribute="leading" id="T3l-1R-fI9"/>
+                            <constraint firstItem="J2x-f5-x6H" firstAttribute="trailing" secondItem="LC4-TU-fNh" secondAttribute="trailing" id="Thd-ep-ipU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="J2x-f5-x6H"/>
+                    </view>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="gqu-Yt-pAp" id="0pV-zd-GX8"/>
+                        <outlet property="searchResultTableView" destination="LC4-TU-fNh" id="oMz-gR-9Vo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rQ7-y9-BcT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="gqu-Yt-pAp">
+                    <connections>
+                        <outlet property="delegate" destination="hg1-VR-elI" id="cfX-xh-aKx"/>
+                        <outlet property="searchContentsController" destination="hg1-VR-elI" id="zkd-U9-q2q"/>
+                        <outlet property="searchResultsDataSource" destination="hg1-VR-elI" id="AEy-48-0op"/>
+                        <outlet property="searchResultsDelegate" destination="hg1-VR-elI" id="ibI-Yw-Jcm"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="1515.9420289855075" y="-940.17857142857133"/>
+        </scene>
+    </scenes>
+</document>
