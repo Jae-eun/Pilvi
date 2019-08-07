@@ -2,12 +2,12 @@
 
 
 
-![1](/Users/ijaeeun/Documents/KakaoPay/Pilvi/image/1.PNG)
+![1](./image/1.PNG)
 
-![2](/Users/ijaeeun/Documents/KakaoPay/Pilvi/image/2.PNG)
+![2](./image/2.PNG)
 
-![3](/Users/ijaeeun/Documents/KakaoPay/Pilvi/image/3.PNG)
+![3](./image/3.PNG)
 
-![4](/Users/ijaeeun/Documents/KakaoPay/Pilvi/image/4.PNG)
+![4](./image/4.PNG)
 
-![5](/Users/ijaeeun/Documents/KakaoPay/Pilvi/image/5.PNG)
+![5](./image/5.PNG)
