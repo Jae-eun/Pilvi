@@ -59,17 +59,11 @@ final class SearchPlaceViewController: UIViewController {
     
     private func checkoutExistPlace(_ latitude: CLLocationDegrees,
                                     _ longitude: CLLocationDegrees,
-        _ placeName: String) -> Bool {
+                                    _ placeName: String) -> Bool {
         let isExist = true
-        if let latitudeArray = UserDefaults.standard
-            .array(forKey: "latitude") as? [CLLocationDegrees],
-            !latitudeArray.contains(latitude),
-            let longitudeArray = UserDefaults.standard
-                .array(forKey: "longitude") as? [CLLocationDegrees],
-            !longitudeArray.contains(longitude),
-            let placeNameArray = UserDefaults.standard
-                .array(forKey: "placeName") as? [String],
-            !placeNameArray.contains(placeName){
+        if !latitudeArray.contains(latitude) &&
+            !longitudeArray.contains(longitude) &&
+            !placeNameArray.contains(placeName) {
             return !isExist
         } else {
             return isExist

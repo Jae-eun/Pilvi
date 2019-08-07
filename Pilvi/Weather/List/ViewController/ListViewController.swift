@@ -38,7 +38,7 @@ final class ListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        fetchWeatherData(count: latitudeArray.count)
+        fetchWeatherData(count: placeNameArray.count)
     }
     
     // MARK: - Method
@@ -122,24 +122,7 @@ extension ListViewController: UITableViewDataSource {
 
 extension ListViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView,
-                   commit editingStyle: UITableViewCell.EditingStyle,
-                   forRowAt indexPath: IndexPath) {
-        
-        if editingStyle == UITableViewCell.EditingStyle.delete {
-            placesData.remove(at: indexPath.row)
-            latitudeArray.remove(at: indexPath.row)
-            longitudeArray.remove(at: indexPath.row)
-            placeNameArray.remove(at: indexPath.row)
-            setLocation(latitudeArray, longitudeArray, placeNameArray)
-            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
-        }
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        //        guard let currentCell = tableView.cellForRow(at: indexPath)
-        //            as? PlaceListTableViewCell else { return }
         
         moveMainViewController()
     }
