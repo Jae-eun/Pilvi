@@ -23,26 +23,20 @@ final class ListViewController: UIViewController {
     private var longitudeArray: [CLLocationDegrees]
         = UserDefaults.standard.array(forKey: "longitude") as? [CLLocationDegrees] ?? []
     private var placesData: [WeatherModel] = []
+    private var placeNameArray: [String]
+        = UserDefaults.standard.array(forKey: "placeName") as? [String] ?? []
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
         fetchWeatherData(count: latitudeArray.count)
-    }
-    
-    @IBAction func openSearchViewController(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "List",
-                                      bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "SearchPlaceViewController")
-        self.navigationController?.pushViewController(viewController,
-                                                      animated: true)
     }
     
     // MARK: - Method
@@ -65,9 +59,27 @@ final class ListViewController: UIViewController {
             self?.placeListTableView.reloadData()
         }
     }
+    
+    private func moveMainViewController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
+        self.navigationController?.pushViewController(viewController,
+                                                      animated: true)
+    }
+    
+    private func setLocation(_ latitudeArray: [CLLocationDegrees],
+                             _ longitudeArray: [CLLocationDegrees],
+                             _ placeNameArray: [String]) {
+        UserDefaults.standard.set(latitudeArray, forKey: "latitude")
+        UserDefaults.standard.set(longitudeArray, forKey: "longitude")
+        UserDefaults.standard.set(placeNameArray, forKey: "placeName")
+        UserDefaults.standard.synchronize()
+    }
+    
 }
 
 // MARK: - UITableViewDataSource
+
 extension ListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
@@ -81,18 +93,38 @@ extension ListViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? PlaceListTableViewCell
             else { return UITableViewCell() }
         
-        print(latitudeArray.count)
-        print("ppppp\(placesData.count)")
-        print(indexPath.row)
         let placeData = placesData[indexPath.row]
-        print(placeData.timezone)
-        cell.setProperties(placeData: placeData)
+        cell.setProperties(placeData: placeData, placeName: placeNameArray[indexPath.row])
         return cell
     }
     
-    
 }
+
+// MARK: - UITableViewDelegate
 
 extension ListViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView,
+                   commit editingStyle: UITableViewCell.EditingStyle,
+                   forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            placesData.remove(at: indexPath.row)
+            latitudeArray.remove(at: indexPath.row)
+            longitudeArray.remove(at: indexPath.row)
+            placeNameArray.remove(at: indexPath.row)
+            setLocation(latitudeArray, longitudeArray, placeNameArray)
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //        guard let currentCell = tableView.cellForRow(at: indexPath)
+        //            as? PlaceListTableViewCell else { return }
+        
+        moveMainViewController()
+    }
+    
 }
+
