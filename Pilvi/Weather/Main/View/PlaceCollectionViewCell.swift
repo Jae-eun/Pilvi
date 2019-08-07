@@ -33,14 +33,6 @@ final class PlaceCollectionViewCell: UICollectionViewCell {
         dayTableView.dataSource = self
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        
-        todayWeatherView = nil
-        shortTextView = nil
-        detailStackView = nil
-    }
-    
     // MARK: - Method
     
     private func sendUIViewData(_ weatherData: WeatherModel) {
