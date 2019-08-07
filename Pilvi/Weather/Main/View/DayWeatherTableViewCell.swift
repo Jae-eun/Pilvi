@@ -9,23 +9,13 @@
 import UIKit
 
 final class DayWeatherTableViewCell: UITableViewCell {
-
+    
     // MARK: - IBOutlet
     
     @IBOutlet private weak var dayLabel: UILabel!
     @IBOutlet private weak var iconImageView: UIImageView!
     @IBOutlet private weak var higherTemperatureLabel: UILabel!
     @IBOutlet private weak var lowerTemperatureLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-    }
     
     // MARK: - Method
     
@@ -39,10 +29,10 @@ final class DayWeatherTableViewCell: UITableViewCell {
     private func changeCelcius(fahrenheit: Double) -> Int {
         return Int((fahrenheit - 32) * (5/9))
     }
-
+    
     private func changeWeekDay(_ date: Int) -> String {
         let dateFormat = DateFormat(date: Date(timeIntervalSince1970: Double(date)))
         return dateFormat.weekDay
     }
-
+    
 }
