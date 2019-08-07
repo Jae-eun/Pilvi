@@ -14,6 +14,12 @@ final class SearchResultTableViewCell: UITableViewCell {
     
     @IBOutlet weak var resultLabel: UILabel!
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        resultLabel.text = nil
+    }
+    
     // MARK: - Method
     
     func setProperties(_ word: String, part: String) {

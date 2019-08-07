@@ -17,6 +17,15 @@ final class DayWeatherTableViewCell: UITableViewCell {
     @IBOutlet private weak var higherTemperatureLabel: UILabel!
     @IBOutlet private weak var lowerTemperatureLabel: UILabel!
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        dayLabel.text = nil
+        iconImageView.image = nil
+        higherTemperatureLabel.text = nil
+        lowerTemperatureLabel.text = nil
+    }
+    
     // MARK: - Method
     
     func setProperties(_ data: DailyData) {

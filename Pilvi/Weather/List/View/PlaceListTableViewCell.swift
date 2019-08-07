@@ -16,6 +16,14 @@ final class PlaceListTableViewCell: UITableViewCell {
     @IBOutlet private weak var placeLabel: UILabel!
     @IBOutlet private weak var temperatureLabel: UILabel!
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        timeLabel.text = nil
+        placeLabel.text = nil
+        temperatureLabel.text = nil
+    }
+    
     // MARK: - Method
     
     func setProperties(placeData: WeatherModel, placeName: String) {
