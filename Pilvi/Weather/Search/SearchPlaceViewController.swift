@@ -46,11 +46,6 @@ final class SearchPlaceViewController: UIViewController {
         setSearchController()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-    }
-    
     // MARK: - Method
     
     private func addLocation(_ latitudeArray: [CLLocationDegrees],

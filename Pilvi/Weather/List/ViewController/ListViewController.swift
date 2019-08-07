@@ -25,12 +25,14 @@ final class ListViewController: UIViewController {
     private var placesData: [WeatherModel] = []
     private var placeNameArray: [String]
         = UserDefaults.standard.array(forKey: "placeName") as? [String] ?? []
+    private var refreshControl = UIRefreshControl()
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        configureRefreshControl()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,10 +72,26 @@ final class ListViewController: UIViewController {
     private func setLocation(_ latitudeArray: [CLLocationDegrees],
                              _ longitudeArray: [CLLocationDegrees],
                              _ placeNameArray: [String]) {
+        
         UserDefaults.standard.set(latitudeArray, forKey: "latitude")
         UserDefaults.standard.set(longitudeArray, forKey: "longitude")
         UserDefaults.standard.set(placeNameArray, forKey: "placeName")
         UserDefaults.standard.synchronize()
+    }
+    
+    private func configureRefreshControl() {
+        placeListTableView.refreshControl = refreshControl
+        refreshControl.addTarget(self,
+                                 action: #selector(handleRefreshControl),
+                                 for: .valueChanged)
+    }
+    
+    @objc func handleRefreshControl() {
+        fetchWeatherData(count: latitudeArray.count)
+        DispatchQueue.main.async { [weak self] in
+            self?.refreshControl.endRefreshing()
+            self?.placeListTableView.reloadData()
+        }
     }
     
 }
