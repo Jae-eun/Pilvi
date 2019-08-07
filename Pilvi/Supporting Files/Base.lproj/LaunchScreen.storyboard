@@ -35,7 +35,7 @@
                         <constraints>
                             <constraint firstItem="VNo-B2-HRg" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" multiplier="1.04" id="FRr-Na-NND"/>
                             <constraint firstItem="SgU-WB-61q" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Phc-Dl-HF3"/>
-                            <constraint firstItem="VNo-B2-HRg" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.85" id="Tea-Qs-uP7"/>
+                            <constraint firstItem="SgU-WB-61q" firstAttribute="top" secondItem="VNo-B2-HRg" secondAttribute="bottom" id="dWG-Gr-79Q"/>
                             <constraint firstItem="VNo-B2-HRg" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.3" id="oih-xW-gUa"/>
                             <constraint firstItem="SgU-WB-61q" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="u3f-YN-MAK"/>
                         </constraints>
