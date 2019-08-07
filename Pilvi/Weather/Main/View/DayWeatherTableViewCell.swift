@@ -9,7 +9,7 @@
 import UIKit
 
 final class DayWeatherTableViewCell: UITableViewCell {
-
+    
     // MARK: - IBOutlet
     
     @IBOutlet private weak var dayLabel: UILabel!
@@ -17,14 +17,13 @@ final class DayWeatherTableViewCell: UITableViewCell {
     @IBOutlet private weak var higherTemperatureLabel: UILabel!
     @IBOutlet private weak var lowerTemperatureLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override func prepareForReuse() {
+        super.prepareForReuse()
         
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
+        dayLabel.text = nil
+        iconImageView.image = nil
+        higherTemperatureLabel.text = nil
+        lowerTemperatureLabel.text = nil
     }
     
     // MARK: - Method
@@ -39,10 +38,10 @@ final class DayWeatherTableViewCell: UITableViewCell {
     private func changeCelcius(fahrenheit: Double) -> Int {
         return Int((fahrenheit - 32) * (5/9))
     }
-
+    
     private func changeWeekDay(_ date: Int) -> String {
         let dateFormat = DateFormat(date: Date(timeIntervalSince1970: Double(date)))
         return dateFormat.weekDay
     }
-
+    
 }

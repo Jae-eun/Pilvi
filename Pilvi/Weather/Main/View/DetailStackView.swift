@@ -53,7 +53,7 @@ final class DetailStackView: UIStackView {
             self?.humidityLabel.text = "\(Int(currently.humidity * 100))%"
             self?.windLabel.text = "\(currently.windSpeed)m/s"
             self?.apparentTemperatureLabel.text = "\(String(describing: apparentTemperature))°"
-            self?.rainIndensityLabel.text = "\(currently.precipIntensity)cm"
+            self?.rainIndensityLabel.text = "\(floor((currently.precipIntensity) / 100))cm"
             self?.pressureLabel.text = "\(Int(currently.pressure))hPa"
         }
     }

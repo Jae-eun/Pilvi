@@ -16,6 +16,14 @@ final class HourCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var iconImageView: UIImageView!
     @IBOutlet private weak var temperatureLabel: UILabel!
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        hourLabel.text = nil
+        iconImageView.image = nil
+        temperatureLabel.text = nil
+    }
+    
     // MARK: - Method
     
     func setProperties(_ data: Currently) {

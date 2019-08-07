@@ -22,6 +22,7 @@ final class PlaceCollectionViewCell: UICollectionViewCell {
     
     private let reuseIdentifiers: [String] = ["HourCell", "DayCell"]
     var weatherData: WeatherModel? = nil
+    var cityName: String?
     
     // MARK: - Life Cycle
     
@@ -32,12 +33,20 @@ final class PlaceCollectionViewCell: UICollectionViewCell {
         dayTableView.dataSource = self
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        todayWeatherView = nil
+        shortTextView = nil
+        detailStackView = nil
+    }
+    
     // MARK: - Method
     
     private func sendUIViewData(_ weatherData: WeatherModel) {
         todayWeatherView.currentlyData = weatherData.currently
         todayWeatherView.dailyData = weatherData.daily.data[0]
-        todayWeatherView.cityName = weatherData.timezone
+        todayWeatherView.cityName = cityName
         shortTextView.dailyData = weatherData.daily.data[0]
         detailStackView.currentlyData = weatherData.currently
         detailStackView.dailyData = weatherData.daily.data[0]
@@ -97,7 +106,7 @@ extension PlaceCollectionViewCell: UITableViewDataSource {
                 sendUIViewData(weatherData)
             }
         }
-
+        
         return cell
     }
     

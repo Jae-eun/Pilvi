@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TodayWeatherView: UIView {
+final class TodayWeatherView: UIView {
     
     // MARK: - IBOutlet
     

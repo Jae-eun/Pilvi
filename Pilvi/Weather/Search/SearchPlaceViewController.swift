@@ -27,9 +27,12 @@ final class SearchPlaceViewController: UIViewController {
         searchCompleter.filterType = .locationsOnly
         return searchCompleter
     }()
-    
-    private var latitudeArray: [CLLocationDegrees] = UserDefaults.standard.array(forKey: "latitude") as? [CLLocationDegrees] ?? []
-    private var longitudeArray: [CLLocationDegrees] = UserDefaults.standard.array(forKey: "longitude") as? [CLLocationDegrees] ?? []
+    private var latitudeArray: [CLLocationDegrees]
+        = UserDefaults.standard.array(forKey: "latitude") as? [CLLocationDegrees] ?? []
+    private var longitudeArray: [CLLocationDegrees]
+        = UserDefaults.standard.array(forKey: "longitude") as? [CLLocationDegrees] ?? []
+    private var placeNameArray: [String]
+        = UserDefaults.standard.array(forKey: "placeName") as? [String] ?? []
     
     // MARK: - Life Cycle
     
@@ -39,10 +42,6 @@ final class SearchPlaceViewController: UIViewController {
         searchCompleter.delegate = self
         searchResultTableView.delegate = self
         searchResultTableView.dataSource = self
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
         
         setSearchController()
     }
@@ -50,21 +49,27 @@ final class SearchPlaceViewController: UIViewController {
     // MARK: - Method
     
     private func addLocation(_ latitudeArray: [CLLocationDegrees],
-                             _ longitudeArray: [CLLocationDegrees]) {
+                             _ longitudeArray: [CLLocationDegrees],
+                             _ placeNameArray: [String]) {
         UserDefaults.standard.set(latitudeArray, forKey: "latitude")
         UserDefaults.standard.set(longitudeArray, forKey: "longitude")
+        UserDefaults.standard.set(placeNameArray, forKey: "placeName")
         UserDefaults.standard.synchronize()
     }
     
     private func checkoutExistPlace(_ latitude: CLLocationDegrees,
-                                    _ longitude: CLLocationDegrees) -> Bool {
+                                    _ longitude: CLLocationDegrees,
+        _ placeName: String) -> Bool {
         let isExist = true
         if let latitudeArray = UserDefaults.standard
             .array(forKey: "latitude") as? [CLLocationDegrees],
             !latitudeArray.contains(latitude),
             let longitudeArray = UserDefaults.standard
                 .array(forKey: "longitude") as? [CLLocationDegrees],
-            !longitudeArray.contains(longitude) {
+            !longitudeArray.contains(longitude),
+            let placeNameArray = UserDefaults.standard
+                .array(forKey: "placeName") as? [String],
+            !placeNameArray.contains(placeName){
             return !isExist
         } else {
             return isExist
@@ -97,6 +102,14 @@ extension SearchPlaceViewController: UITableViewDataSource {
         return cell
     }
     
+    private func moveListViewController() {
+        let storyboard = UIStoryboard(name: "List",
+                                      bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "ListViewController")
+        self.navigationController?.pushViewController(viewController,
+                                                      animated: true)
+    }
+    
 }
 
 // MARK: - UITableViewDelegate
@@ -108,20 +121,23 @@ extension SearchPlaceViewController: UITableViewDelegate {
             as? SearchResultTableViewCell else { return }
         
         let geocoder = CLGeocoder()
-        guard let name = currentCell.resultLabel.text else { return }
-        geocoder.geocodeAddressString(name) { [weak self] place, error in
+        guard let placeName = currentCell.resultLabel.text else { return }
+        geocoder.geocodeAddressString(placeName) { [weak self] place, error in
             let place = place?.first
             guard let latitude = place?.location?.coordinate.latitude,
                 let longitude = place?.location?.coordinate.longitude else { return }
             print("latitude: \(String(describing: latitude)), longitude: \(String(describing: longitude))")
             
-            if self?.checkoutExistPlace(latitude, longitude) == false {
+            if self?.checkoutExistPlace(latitude, longitude, placeName) == false {
                 self?.latitudeArray.append(latitude)
                 self?.longitudeArray.append(longitude)
-                self?.addLocation(self?.latitudeArray ?? [], self?.longitudeArray ?? [])
+                self?.placeNameArray.append(placeName)
+                self?.addLocation(self?.latitudeArray ?? [],
+                                  self?.longitudeArray ?? [],
+                                  self?.placeNameArray ?? [])
             }
             
-            self?.navigationController?.popViewController(animated: true)
+            self?.moveListViewController()
         }
     }
 }

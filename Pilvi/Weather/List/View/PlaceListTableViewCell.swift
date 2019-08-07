@@ -16,21 +16,19 @@ final class PlaceListTableViewCell: UITableViewCell {
     @IBOutlet private weak var placeLabel: UILabel!
     @IBOutlet private weak var temperatureLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override func prepareForReuse() {
+        super.prepareForReuse()
         
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
+        timeLabel.text = nil
+        placeLabel.text = nil
+        temperatureLabel.text = nil
     }
     
     // MARK: - Method
     
-    func setProperties(placeData: WeatherModel) {
+    func setProperties(placeData: WeatherModel, placeName: String) {
         timeLabel.text = "\(changeTime(placeData.currently.time))"
-        placeLabel.text = "\(placeData.timezone)"
+        placeLabel.text = "\(placeName)"
         temperatureLabel.text
             = "\(self.changeCelcius(fahrenheit: placeData.currently.temperature))°"
     }
