@@ -2,12 +2,7 @@
 
 
 
-![1](./image/1.PNG)
+![6](./image/6.PNG)
 
-![2](./image/2.PNG)
+![7](./image/7.PNG)
 
-![3](./image/3.PNG)
-
-![4](./image/4.PNG)
-
-![5](./image/5.PNG)
