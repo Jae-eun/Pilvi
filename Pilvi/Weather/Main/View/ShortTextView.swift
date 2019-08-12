@@ -32,7 +32,7 @@ final class ShortTextView: UIView {
         
         DispatchQueue.main.async { [weak self] in
             self?.shortTextLabel.text
-                = "* 오늘: 현재 날씨 \(data.summary). \n* 최고 기온은 \(String(describing:  highterTemperature))°입니다. \n* 오늘 밤 날씨 \(data.summary), 최저 기온은 \(String(describing: lowerTemperature))°입니다."
+                = "* 오늘: 현재 날씨 \(data.summary). \n* 최고 기온은 \(  highterTemperature)°입니다. \n* 오늘 밤 날씨 \(data.summary), 최저 기온은 \(lowerTemperature)°입니다."
         }
     }
     

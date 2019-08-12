@@ -55,6 +55,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="VJ2-Tq-vVH" secondAttribute="trailing" constant="20" id="LdP-6i-xxj"/>
                                                 <constraint firstItem="WSE-Dd-zdE" firstAttribute="leading" secondItem="lrh-qI-KKD" secondAttribute="leading" id="hgM-bf-JuQ"/>
                                                 <constraint firstItem="WSE-Dd-zdE" firstAttribute="top" secondItem="gLp-md-DGR" secondAttribute="top" constant="10" id="qNa-dd-OZ0"/>
+                                                <constraint firstItem="VJ2-Tq-vVH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lrh-qI-KKD" secondAttribute="trailing" constant="10" id="rLu-9g-4Fh"/>
                                                 <constraint firstItem="lrh-qI-KKD" firstAttribute="top" secondItem="WSE-Dd-zdE" secondAttribute="bottom" constant="3" id="s8v-zM-hSg"/>
                                             </constraints>
                                         </tableViewCellContentView>
