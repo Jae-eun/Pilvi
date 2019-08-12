@@ -46,6 +46,14 @@ final class SearchPlaceViewController: UIViewController {
         setSearchController()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        DispatchQueue.main.async { [weak self] in
+            self?.placeResults = []
+            self?.searchResultTableView.reloadData()
+        }
+    }
+    
     // MARK: - Method
     
     private func addLocation(_ latitudeArray: [CLLocationDegrees],
@@ -77,11 +85,13 @@ final class SearchPlaceViewController: UIViewController {
 
 extension SearchPlaceViewController: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
         return placeResults?.count ?? 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView
             .dequeueReusableCell(withIdentifier: reuseIdentifier,
                                  for: indexPath)
@@ -99,7 +109,8 @@ extension SearchPlaceViewController: UITableViewDataSource {
     private func moveListViewController() {
         let storyboard = UIStoryboard(name: "List",
                                       bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "ListViewController")
+        let viewController = storyboard
+            .instantiateViewController(withIdentifier: "ListViewController")
         self.navigationController?.pushViewController(viewController,
                                                       animated: true)
     }
@@ -120,7 +131,6 @@ extension SearchPlaceViewController: UITableViewDelegate {
             let place = place?.first
             guard let latitude = place?.location?.coordinate.latitude,
                 let longitude = place?.location?.coordinate.longitude else { return }
-            print("latitude: \(String(describing: latitude)), longitude: \(String(describing: longitude))")
             
             if self?.checkoutExistPlace(latitude, longitude, placeName) == false {
                 self?.latitudeArray.append(latitude)

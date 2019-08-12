@@ -25,7 +25,9 @@ final class ListViewController: UIViewController {
     private var placesData: [WeatherModel] = []
     private var placeNameArray: [String]
         = UserDefaults.standard.array(forKey: "placeName") as? [String] ?? []
-    private var refreshControl = UIRefreshControl()
+    private var refreshControl: UIRefreshControl = UIRefreshControl()
+    private let weatherListGroup = DispatchGroup()
+    private let weatherListQueue = DispatchQueue(label: "weatherListQueue", qos: .default, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil)
     
     // MARK: - Life Cycle
     
@@ -33,40 +35,43 @@ final class ListViewController: UIViewController {
         super.viewDidLoad()
         
         configureRefreshControl()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
         fetchWeatherData(count: placeNameArray.count)
     }
     
     // MARK: - Method
     
     private func fetchWeatherData(count: Int) {
-        
         for index in 0..<count {
-            WeatherService.shared.fetchWeather(
-                latitude: latitudeArray[index],
-                longitude: longitudeArray[index],
-                date: Date(),
-                success: { [weak self] result in
-                    
-                    self?.placesData.append(result)
-                }, errorHandler: {
-                    print("error")
-            })
-        }
-        DispatchQueue.main.async { [weak self] in
-            self?.placeListTableView.reloadData()
+            weatherListQueue.async(group: weatherListGroup) { [weak self] in
+                guard let self = self else { return }
+                WeatherService.shared.fetchWeather(
+                    latitude: self.latitudeArray[index],
+                    longitude: self.longitudeArray[index],
+                    success: { [weak self] result in
+                        if self?.placesData.count != self?.placeNameArray.count {
+                            self?.placesData.append(result)
+                        }
+                        DispatchQueue.main.async { [weak self] in
+                            self?.placeListTableView.reloadData()
+                        }
+                    }, errorHandler: {
+                        print("error")
+                        return
+                })
+            }
+            self.weatherListGroup.wait()
+            
         }
     }
     
-    private func moveMainViewController() {
+    private func moveMainViewController(_ indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
-        self.navigationController?.pushViewController(viewController,
-                                                      animated: true)
+        if let viewController = storyboard.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController {
+            viewController.weatherData = placesData
+            viewController.collectionViewIndexPath = indexPath
+            self.navigationController?.pushViewController(viewController,
+                                                          animated: true)
+        }
     }
     
     private func setLocation(_ latitudeArray: [CLLocationDegrees],
@@ -87,10 +92,9 @@ final class ListViewController: UIViewController {
     }
     
     @objc func handleRefreshControl() {
-        fetchWeatherData(count: latitudeArray.count)
+        fetchWeatherData(count: placeNameArray.count)
         DispatchQueue.main.async { [weak self] in
             self?.refreshControl.endRefreshing()
-            self?.placeListTableView.reloadData()
         }
     }
     
@@ -108,11 +112,14 @@ extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? PlaceListTableViewCell
+        guard let cell = tableView
+            .dequeueReusableCell(withIdentifier: reuseIdentifier,
+                                 for: indexPath) as? PlaceListTableViewCell
             else { return UITableViewCell() }
         
         let placeData = placesData[indexPath.row]
-        cell.setProperties(placeData: placeData, placeName: placeNameArray[indexPath.row])
+        cell.setProperties(placeData: placeData,
+                           placeName: placeNameArray[indexPath.row])
         return cell
     }
     
@@ -123,9 +130,9 @@ extension ListViewController: UITableViewDataSource {
 extension ListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        moveMainViewController()
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        cell.isSelected = false
+        moveMainViewController(indexPath)
     }
     
 }
-
