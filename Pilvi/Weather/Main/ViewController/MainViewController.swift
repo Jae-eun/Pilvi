@@ -18,16 +18,10 @@ final class MainViewController: UIViewController {
     // MARK: - Property
     
     private let reuseIdentifier: String = "PlaceCell"
-    private var weatherData: [WeatherModel] = []
-    private var currentlyData: [Currently] = []
-    private var dailyData: [DailyData] = []
-    private var latitudeArray: [CLLocationDegrees]
-        = UserDefaults.standard.array(forKey: "latitude") as? [CLLocationDegrees] ?? []
-    private var longitudeArray: [CLLocationDegrees]
-        = UserDefaults.standard.array(forKey: "longitude") as? [CLLocationDegrees] ?? []
-    private var locationManager: CLLocationManager!
+    var weatherData: [WeatherModel] = []
     private var placeNameArray: [String]
         = UserDefaults.standard.array(forKey: "placeName") as? [String] ?? []
+    var collectionViewIndexPath: IndexPath = IndexPath(item: 0, section: 0)
     
     // MARK: - Life Cycle
     
@@ -35,45 +29,21 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         
         mainCollectionView.dataSource = self
-        
-        UserDefaults.standard.set(latitudeArray, forKey: "latitude")
-        UserDefaults.standard.set(longitudeArray, forKey: "longitude")
-        
-        fetchWeather(count: latitudeArray.count)
-        
+        mainCollectionView.delegate = self
+   
+        UserDefaults.standard.set(placeNameArray, forKey: "placeName")
     }
     
-    // MARK: - Methods
-    
-    private func fetchWeather(count: Int) {
-        for index in 0..<count {
-            WeatherService.shared.fetchWeather(
-                latitude: latitudeArray[index],
-                longitude: longitudeArray[index],
-                date: Date(),
-                success: { [weak self] result in
-                    self?.weatherData.append(result)
-                    self?.currentlyData.append(result.currently)
-                    self?.dailyData.append(result.daily.data[0])
-                    print(self?.weatherData)
-                    print(self?.dailyData)
-                    
-                }, errorHandler: {
-                    print("error")
-            })
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        mainCollectionView.layoutIfNeeded()
+        mainCollectionView.scrollToItem(at: collectionViewIndexPath,
+                                        at: .right,
+                                        animated: false)
         DispatchQueue.main.async { [weak self] in
             self?.mainCollectionView.reloadData()
         }
-    }
-    
-    private func addLocation(_ latitudeArray: [CLLocationDegrees],
-                             _ longitudeArray: [CLLocationDegrees],
-                             _ placeNameArray: [String]) {
-        UserDefaults.standard.set(latitudeArray, forKey: "latitude")
-        UserDefaults.standard.set(longitudeArray, forKey: "longitude")
-        UserDefaults.standard.set(placeNameArray, forKey: "placeName")
-        UserDefaults.standard.synchronize()
     }
     
 }
@@ -95,9 +65,14 @@ extension MainViewController: UICollectionViewDataSource {
             else { return UICollectionViewCell() }
         
         cell.weatherData = weatherData[indexPath.item]
-        print(placeNameArray)
         cell.cityName = placeNameArray[indexPath.item]
+        cell.hourCollectionView.reloadData()
+        cell.dayTableView.reloadData()
         
         return cell
     }
+}
+
+extension MainViewController: UICollectionViewDelegate {
+    
 }
