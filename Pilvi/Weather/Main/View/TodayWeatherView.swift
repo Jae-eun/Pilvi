@@ -52,17 +52,17 @@ final class TodayWeatherView: UIView {
         let lowerTemperature = changeCelcius(fahrenheit: daily.temperatureLow)
         
         DispatchQueue.main.async { [weak self] in
-            self?.summeryLabel.text = "\(String(describing: currently.summary))"
-            self?.temperatureLabel.text = "\(String(describing: temperature))°"
-            self?.dayLabel.text = "\(String(describing: day))"
-            self?.higherTemperatureLabel.text = "\(String(describing: higherTemperature))"
-            self?.lowerTemperatureLabel.text = "\(String(describing: lowerTemperature))"
+            self?.summeryLabel.text = "\(currently.summary)"
+            self?.temperatureLabel.text = "\(temperature)°"
+            self?.dayLabel.text = "\(day)"
+            self?.higherTemperatureLabel.text = "\(higherTemperature)"
+            self?.lowerTemperatureLabel.text = "\(lowerTemperature)"
         }
     }
     
     private func setCityName(text: String) {
         DispatchQueue.main.async { [weak self] in
-            self?.placeLabel.text = "\(String(describing: text))"
+            self?.placeLabel.text = "\(text)"
         }
     }
     
@@ -75,5 +75,3 @@ final class TodayWeatherView: UIView {
         return dateFormat.weekDay
     }
 }
-
-

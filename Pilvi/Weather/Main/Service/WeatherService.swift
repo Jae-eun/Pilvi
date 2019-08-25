@@ -21,7 +21,6 @@ class WeatherService {
     func fetchWeather (
         latitude: Double,
         longitude: Double,
-        date: Date,
         success: @escaping (WeatherModel) -> Void,
         errorHandler: @escaping () -> Void) {
         let urlString  = "\(baseURL)/\(APIKey)/\(latitude),\(longitude)"

@@ -47,12 +47,12 @@ final class DetailStackView: UIStackView {
         let apparentTemperature = changeCelcius(fahrenheit: currently.apparentTemperature)
         
         DispatchQueue.main.async { [weak self] in
-            self?.sunriseTimeLabel.text = "\(String(describing: sunriseTime))"
-            self?.sunsetTimeLabel.text = "\(String(describing: sunsetTime))"
+            self?.sunriseTimeLabel.text = "\(sunriseTime)"
+            self?.sunsetTimeLabel.text = "\(sunsetTime)"
             self?.rainProbabilityLabel.text = "\(Int(currently.precipProbability * 100))%"
             self?.humidityLabel.text = "\(Int(currently.humidity * 100))%"
             self?.windLabel.text = "\(currently.windSpeed)m/s"
-            self?.apparentTemperatureLabel.text = "\(String(describing: apparentTemperature))°"
+            self?.apparentTemperatureLabel.text = "\(apparentTemperature)°"
             self?.rainIndensityLabel.text = "\(floor((currently.precipIntensity) / 100))cm"
             self?.pressureLabel.text = "\(Int(currently.pressure))hPa"
         }
